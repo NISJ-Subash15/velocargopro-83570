@@ -1,76 +1,79 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, MapPin } from "lucide-react";
-import mecHeroBackground from "@/assets/mec-hero-background.jpg";
 import mecLogo from "@/assets/mec-logo.png";
 
 const MECHero = () => {
-  return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Image with Overlay */}
-      <div className="absolute inset-0 z-0">
-        <img
-          src={mecHeroBackground}
-          alt="MEC Campus - Students coding in futuristic environment"
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/80 to-secondary/85" />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background/20" />
-      </div>
+  const companies = [
+    { name: "Google", logo: "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" },
+    { name: "Meta", logo: "https://upload.wikimedia.org/wikipedia/commons/7/7b/Meta_Platforms_Inc._logo.svg" },
+    { name: "Microsoft", logo: "https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" }
+  ];
 
-      {/* Animated Circuit Pattern Overlay */}
-      <div className="absolute inset-0 z-10 opacity-10">
-        <div className="absolute top-0 left-0 w-full h-full">
-          <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <pattern id="circuit" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
-                <circle cx="10" cy="10" r="2" fill="white" opacity="0.5" />
-                <circle cx="90" cy="90" r="2" fill="white" opacity="0.5" />
-                <line x1="10" y1="10" x2="90" y2="90" stroke="white" strokeWidth="0.5" opacity="0.3" />
-              </pattern>
-            </defs>
-            <rect width="100%" height="100%" fill="url(#circuit)" />
-          </svg>
+  return (
+    <section className="relative min-h-screen flex flex-col overflow-hidden bg-gradient-to-b from-background to-secondary-light">
+      {/* Top Bar */}
+      <div className="container mx-auto px-4 py-6 flex justify-between items-start">
+        {/* Top Left - TNEA Code Box */}
+        <div className="bg-background border-2 border-primary rounded-lg p-4 shadow-md animate-fade-in">
+          <p className="text-sm font-semibold text-primary">TNEA CODE: 1203</p>
+          <p className="text-sm text-muted-foreground mt-1">Chennai</p>
+        </div>
+
+        {/* Top Right - Logo */}
+        <div className="animate-fade-in animation-delay-200">
+          <img
+            src={mecLogo}
+            alt="MEC Logo"
+            className="h-16 w-16 md:h-20 md:w-20 object-contain rounded-full shadow-lg"
+          />
         </div>
       </div>
 
-      {/* Content */}
-      <div className="relative z-20 container mx-auto px-4 py-20">
-        <div className="max-w-5xl mx-auto text-center space-y-8">
-          {/* Logo */}
-          <div className="flex justify-center mb-8 animate-fade-in">
-            <img
-              src={mecLogo}
-              alt="MEC Logo"
-              className="h-24 md:h-32 w-auto drop-shadow-2xl animate-glow-pulse"
-            />
-          </div>
-
-          {/* Headline */}
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-heading font-bold text-white leading-tight animate-fade-in">
-            Madras Engineering
-            <br />
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-white to-secondary-light">
-              College
-            </span>
+      {/* Center Content */}
+      <div className="flex-1 flex items-center justify-center px-4">
+        <div className="max-w-4xl mx-auto text-center space-y-8 animate-fade-in animation-delay-300">
+          {/* Main Headline */}
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-heading font-bold text-foreground leading-tight">
+            Let's Start The Journey
           </h1>
 
-          {/* Subtext */}
-          <p className="text-xl md:text-2xl lg:text-3xl text-white/90 font-medium max-w-3xl mx-auto animate-fade-in animation-delay-200">
-            Empowering the Next Generation of{" "}
-            <span className="text-secondary-light font-bold">IT Innovators</span>
+          {/* Subheading */}
+          <p className="text-xl md:text-2xl text-muted-foreground font-medium">
+            India's 1st Engineering College Specialising in
           </p>
 
-          {/* Location */}
-          <div className="flex items-center justify-center gap-2 text-white/80 text-lg md:text-xl animate-fade-in animation-delay-300">
-            <MapPin className="w-5 h-5 md:w-6 md:h-6" />
-            <span>Chennai, Tamil Nadu, India</span>
+          {/* Courses Box */}
+          <div className="bg-gradient-to-r from-primary/5 to-primary/10 border-2 border-primary rounded-2xl p-6 md:p-8 shadow-elevation animate-fade-in animation-delay-400">
+            <p className="text-lg md:text-xl font-semibold text-foreground leading-relaxed">
+              IT, Computer Science, Data Science,<br />
+              Artificial Intelligence, Machine Learning,<br />
+              Cybersecurity & Business Systems
+            </p>
+          </div>
+
+          {/* Opportunities Text */}
+          <p className="text-base md:text-lg text-muted-foreground animate-fade-in animation-delay-500">
+            Step into a world of opportunities with world-class companies.
+          </p>
+
+          {/* Company Logos */}
+          <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12 py-6 animate-fade-in animation-delay-600">
+            {companies.map((company) => (
+              <div key={company.name} className="flex items-center justify-center h-8 md:h-10 grayscale hover:grayscale-0 transition-all opacity-60 hover:opacity-100">
+                <img
+                  src={company.logo}
+                  alt={`${company.name} logo`}
+                  className="h-full w-auto object-contain"
+                />
+              </div>
+            ))}
           </div>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8 animate-fade-in animation-delay-400">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4 animate-fade-in animation-delay-700">
             <Button
               size="lg"
-              className="bg-white text-primary hover:bg-white/90 shadow-glow text-lg px-8 py-6 h-auto font-semibold group transition-all hover:scale-105"
+              className="bg-primary text-primary-foreground hover:bg-primary/90 shadow-glow text-lg px-8 py-6 h-auto font-semibold group transition-all hover:scale-105"
             >
               Explore Courses
               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -78,34 +81,19 @@ const MECHero = () => {
             <Button
               size="lg"
               variant="outline"
-              className="border-2 border-white text-white hover:bg-white hover:text-primary text-lg px-8 py-6 h-auto font-semibold transition-all hover:scale-105"
+              className="border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground text-lg px-8 py-6 h-auto font-semibold transition-all hover:scale-105"
             >
               Apply Now
             </Button>
           </div>
-
-          {/* Stats Section */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 pt-12 animate-fade-in animation-delay-500">
-            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 hover:bg-white/15 transition-all hover:scale-105">
-              <div className="text-4xl md:text-5xl font-bold text-white mb-2">50+</div>
-              <div className="text-white/80 text-sm md:text-base">Years of Excellence</div>
-            </div>
-            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 hover:bg-white/15 transition-all hover:scale-105">
-              <div className="text-4xl md:text-5xl font-bold text-white mb-2">5000+</div>
-              <div className="text-white/80 text-sm md:text-base">Students Enrolled</div>
-            </div>
-            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 hover:bg-white/15 transition-all hover:scale-105">
-              <div className="text-4xl md:text-5xl font-bold text-white mb-2">100%</div>
-              <div className="text-white/80 text-sm md:text-base">Placement Support</div>
-            </div>
-          </div>
         </div>
       </div>
 
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 animate-bounce">
-        <div className="w-6 h-10 border-2 border-white/50 rounded-full flex items-start justify-center p-2">
-          <div className="w-1 h-3 bg-white/70 rounded-full animate-pulse" />
+      {/* Bottom - Location */}
+      <div className="container mx-auto px-4 py-8 animate-fade-in animation-delay-800">
+        <div className="flex items-center justify-center gap-2 text-muted-foreground">
+          <MapPin className="w-5 h-5" />
+          <span className="text-base md:text-lg">Chennai, Tamil Nadu, India</span>
         </div>
       </div>
     </section>
