@@ -2,34 +2,34 @@
 @tailwind components;
 @tailwind utilities;
 
-/* VelocargoPro Design System - Teal and grey palette */
+/* MEC Design System - Royal Blue and Electric Purple palette */
 
 @layer base {
   :root {
-    --background: 0 0% 98%;
-    --foreground: 222 24% 12%;
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222 24% 12%;
+    --card-foreground: 222 47% 11%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222 24% 12%;
+    --popover-foreground: 222 47% 11%;
 
-    /* Teal primary palette */
-    --primary: 187 54% 54%;
+    /* Royal Blue primary palette */
+    --primary: 230 75% 56%;
     --primary-foreground: 0 0% 100%;
-    --primary-light: 187 54% 64%;
-    --primary-dark: 187 54% 44%;
+    --primary-light: 230 75% 66%;
+    --primary-dark: 230 75% 46%;
 
-    /* Grey secondary palette */
-    --secondary: 220 9% 46%;
+    /* Electric Purple secondary palette */
+    --secondary: 270 70% 60%;
     --secondary-foreground: 0 0% 100%;
-    --secondary-light: 220 9% 58%;
+    --secondary-light: 270 70% 70%;
 
     --muted: 220 14% 96%;
     --muted-foreground: 220 8% 46%;
 
-    --accent: 187 54% 54%;
+    --accent: 270 70% 60%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
@@ -37,7 +37,7 @@
 
     --border: 220 13% 91%;
     --input: 220 13% 91%;
-    --ring: 187 54% 54%;
+    --ring: 230 75% 56%;
 
     --radius: 0.75rem;
 
@@ -45,9 +45,11 @@
     --gradient-primary: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary-light)) 100%);
     --gradient-hero: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--secondary)) 100%);
     --gradient-accent: linear-gradient(90deg, hsl(var(--primary-light)) 0%, hsl(var(--secondary-light)) 100%);
+    --gradient-purple-blue: linear-gradient(135deg, hsl(var(--secondary)) 0%, hsl(var(--primary)) 100%);
 
     /* Shadows with brand colors */
-    --shadow-glow: 0 10px 40px -10px hsl(var(--primary) / 0.4);
+    --shadow-glow: 0 10px 40px -10px hsl(var(--primary) / 0.5);
+    --shadow-glow-purple: 0 10px 40px -10px hsl(var(--secondary) / 0.5);
     --shadow-elevation: 0 4px 20px -4px hsl(var(--primary) / 0.25);
 
     /* Animation timings */
@@ -57,28 +59,28 @@
   }
 
   .dark {
-    --background: 222 24% 8%;
+    --background: 222 47% 8%;
     --foreground: 210 40% 98%;
 
-    --card: 222 24% 10%;
+    --card: 222 47% 10%;
     --card-foreground: 210 40% 98%;
 
-    --popover: 222 24% 10%;
+    --popover: 222 47% 10%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 187 54% 58%;
+    --primary: 230 75% 60%;
     --primary-foreground: 0 0% 100%;
-    --primary-light: 187 54% 68%;
-    --primary-dark: 187 54% 48%;
+    --primary-light: 230 75% 70%;
+    --primary-dark: 230 75% 50%;
 
-    --secondary: 220 9% 51%;
+    --secondary: 270 70% 65%;
     --secondary-foreground: 0 0% 100%;
-    --secondary-light: 220 9% 63%;
+    --secondary-light: 270 70% 75%;
 
     --muted: 220 14% 17%;
     --muted-foreground: 220 8% 65%;
 
-    --accent: 187 54% 58%;
+    --accent: 270 70% 65%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 63% 31%;
@@ -86,7 +88,7 @@
 
     --border: 220 13% 17%;
     --input: 220 13% 17%;
-    --ring: 187 54% 58%;
+    --ring: 230 75% 60%;
   }
 }
 

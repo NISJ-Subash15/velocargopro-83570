@@ -56,10 +56,11 @@ export default {
 					foreground: 'hsl(var(--card-foreground))'
 				}
 			},
-			fontFamily: {
-				sans: ['Inter', 'system-ui', 'sans-serif'],
-				heading: ['Inter', 'system-ui', 'sans-serif']
-			},
+		fontFamily: {
+			sans: ['Poppins', 'Inter', 'system-ui', 'sans-serif'],
+			heading: ['Poppins', 'Inter', 'system-ui', 'sans-serif'],
+			display: ['Roboto', 'Poppins', 'system-ui', 'sans-serif']
+		},
 			borderRadius: {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
