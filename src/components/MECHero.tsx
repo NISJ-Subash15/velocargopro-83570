@@ -9,7 +9,7 @@ const MECHero = () => {
   ];
 
   return (
-    <section className="relative min-h-screen flex flex-col overflow-hidden bg-gradient-to-br from-background via-background to-secondary-light/30">
+    <section className="relative min-h-screen flex flex-col overflow-hidden bg-gradient-to-br from-background via-background/95 to-primary/5">
       {/* Animated background shapes */}
       <div className="bg-shapes">
         <div className="floating-shape"></div>
@@ -20,21 +20,26 @@ const MECHero = () => {
         <div className="floating-shape"></div>
       </div>
 
-      {/* Top Bar - Header & Corners */}
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 flex justify-between items-start relative z-10">
-        {/* Top Left Corner - TNEA Code Box */}
-        <div className="bg-background border-2 border-primary rounded-lg p-3 sm:p-4 shadow-elevation animate-fade-in">
-          <p className="text-xs sm:text-sm font-bold text-primary">TNEA CODE: 1203</p>
-          <p className="text-xs text-muted-foreground mt-0.5">Chennai</p>
-        </div>
-
-        {/* Top Right Corner - College Logo */}
-        <div className="animate-fade-in animate-float">
+      {/* Top Header Bar */}
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 flex justify-between items-center relative z-10">
+        {/* Top Left - College Logo + Name */}
+        <div className="flex items-center gap-3 sm:gap-4 animate-fade-in">
           <img
             src={mecLogo}
             alt="Madras Engineering College Logo"
-            className="h-14 w-14 sm:h-20 sm:w-20 md:h-24 md:w-24 object-contain drop-shadow-xl"
+            className="h-12 w-12 sm:h-16 sm:w-16 md:h-20 md:w-20 object-contain drop-shadow-xl rounded-full border-2 border-primary/20"
           />
+          <div className="hidden sm:block">
+            <h2 className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold text-foreground font-heading">
+              Madras Engineering College
+            </h2>
+          </div>
+        </div>
+
+        {/* Top Right - TNEA Code Box */}
+        <div className="bg-background border-2 border-primary rounded-xl p-3 sm:p-4 shadow-lg hover:shadow-glow transition-all duration-300 animate-fade-in">
+          <p className="text-xs sm:text-sm font-bold text-primary">TNEA CODE: 1203</p>
+          <p className="text-xs text-muted-foreground mt-0.5">Chennai</p>
         </div>
       </div>
 
@@ -48,15 +53,18 @@ const MECHero = () => {
           </h1>
 
           {/* Subheading */}
-          <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-foreground font-semibold max-w-4xl mx-auto leading-relaxed">
+          <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-muted-foreground font-semibold max-w-4xl mx-auto leading-relaxed">
             India's 1st Engineering College Specialising in
           </p>
 
-          {/* Purple-bordered Box with Specializations */}
-          <div className="relative group mx-auto max-w-4xl">
-            <div className="absolute -inset-1 bg-gradient-to-r from-primary via-primary-light to-primary rounded-2xl opacity-50 group-hover:opacity-75 blur-sm transition-all"></div>
-            <div className="relative bg-background border-2 border-primary rounded-2xl p-6 sm:p-8 md:p-10 shadow-glow">
-              <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold text-foreground leading-relaxed">
+          {/* Glowing Specialization Box */}
+          <div className="relative group mx-auto max-w-5xl">
+            {/* Glowing border effect */}
+            <div className="absolute -inset-1 bg-gradient-to-r from-primary via-primary-light to-primary rounded-2xl opacity-60 group-hover:opacity-100 blur-md transition-all duration-500 animate-pulse"></div>
+            
+            {/* Main box */}
+            <div className="relative bg-gradient-to-br from-background/90 to-primary/5 backdrop-blur-sm border-2 border-primary/50 rounded-2xl p-6 sm:p-8 md:p-10 lg:p-12 shadow-2xl group-hover:scale-[1.02] transition-transform duration-500">
+              <p className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold text-foreground leading-relaxed">
                 IT, Computer Science, Data Science,<br className="hidden sm:block" />
                 Artificial Intelligence, Machine Learning,<br className="hidden sm:block" />
                 Cybersecurity & Business Systems
@@ -65,22 +73,22 @@ const MECHero = () => {
           </div>
 
           {/* Supporting Text */}
-          <p className="text-base sm:text-lg md:text-xl text-muted-foreground font-medium pt-4">
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground font-medium pt-4">
             Step into a world of opportunities with world-class companies.
           </p>
 
-          {/* Company Logos - Horizontal Display */}
-          <div className="flex flex-wrap items-center justify-center gap-8 sm:gap-12 md:gap-16 py-6 sm:py-8">
+          {/* Company Logos - Horizontal Display with Grayscale to Color */}
+          <div className="flex flex-wrap items-center justify-center gap-8 sm:gap-12 md:gap-16 lg:gap-20 py-6 sm:py-8">
             {companies.map((company, index) => (
               <div 
                 key={company.name} 
-                className="flex items-center justify-center h-8 sm:h-10 md:h-12 grayscale hover:grayscale-0 transition-all duration-500 opacity-60 hover:opacity-100 hover:scale-110"
+                className="flex items-center justify-center h-8 sm:h-10 md:h-12 lg:h-14 grayscale hover:grayscale-0 transition-all duration-500 opacity-50 hover:opacity-100 hover:scale-125 cursor-pointer"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <img
                   src={company.logo}
                   alt={`${company.name} logo`}
-                  className="h-full w-auto object-contain filter drop-shadow-md"
+                  className="h-full w-auto object-contain filter drop-shadow-lg"
                 />
               </div>
             ))}
@@ -88,11 +96,31 @@ const MECHero = () => {
         </div>
       </div>
 
-      {/* Footer of Hero Section - Location */}
-      <div className="container mx-auto px-4 py-6 sm:py-8 animate-fade-in relative z-10">
-        <div className="flex items-center justify-center gap-2 sm:gap-3 text-muted-foreground hover:text-foreground transition-colors group">
-          <MapPin className="w-5 h-5 sm:w-6 sm:h-6 text-primary group-hover:scale-110 transition-transform" />
-          <span className="text-base sm:text-lg md:text-xl font-medium">Chennai, Tamil Nadu, India</span>
+      {/* Location Section with Map */}
+      <div className="container mx-auto px-4 py-8 sm:py-12 animate-fade-in relative z-10">
+        <div className="max-w-5xl mx-auto space-y-4 sm:space-y-6">
+          {/* Location Header */}
+          <div className="flex items-center justify-center gap-2 sm:gap-3 text-muted-foreground group">
+            <MapPin className="w-5 h-5 sm:w-6 sm:h-6 text-primary group-hover:scale-110 transition-transform" />
+            <span className="text-base sm:text-lg md:text-xl lg:text-2xl font-semibold">Chennai, Tamil Nadu, India</span>
+          </div>
+
+          {/* Google Map Embed */}
+          <div className="relative rounded-2xl overflow-hidden shadow-2xl border-2 border-primary/20 hover:border-primary/40 transition-all duration-300">
+            <div className="aspect-video w-full">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.5348458676847!2d80.23296931482205!3d13.067438990778916!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5267b7c8f8e25d%3A0x2b2e3e3e3e3e3e3e!2sCollege%20of%20Engineering%2C%20Guindy!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Madras Engineering College Location"
+                className="grayscale-[0.3] hover:grayscale-0 transition-all duration-500"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </section>

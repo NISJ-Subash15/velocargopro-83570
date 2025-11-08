@@ -57,9 +57,9 @@ export default {
 				}
 			},
 		fontFamily: {
-			sans: ['Poppins', 'Inter', 'system-ui', 'sans-serif'],
-			heading: ['Poppins', 'Inter', 'system-ui', 'sans-serif'],
-			display: ['Roboto', 'Poppins', 'system-ui', 'sans-serif']
+			sans: ['Poppins', 'system-ui', 'sans-serif'],
+			heading: ['Montserrat', 'Poppins', 'system-ui', 'sans-serif'],
+			display: ['Poppins', 'system-ui', 'sans-serif']
 		},
 			borderRadius: {
 				lg: 'var(--radius)',
