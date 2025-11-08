@@ -1,11 +1,26 @@
-import { MapPin } from "lucide-react";
-import mecLogo from "@/assets/mec-logo.png";
+import { MapPin, Award, Users, Building2, GraduationCap, Mail } from "lucide-react";
+import mecLogo from "@/assets/mec-modern-logo.png";
+import studentsGroup from "@/assets/students-group.jpg";
+import modernLab from "@/assets/modern-lab.jpg";
+import aiLab from "@/assets/ai-lab.jpg";
+import placementCeremony from "@/assets/placement-ceremony.jpg";
 
 const MECHero = () => {
   const companies = [
     { name: "Google", logo: "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" },
-    { name: "Meta", logo: "https://upload.wikimedia.org/wikipedia/commons/7/7b/Meta_Platforms_Inc._logo.svg" },
     { name: "Microsoft", logo: "https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" }
+  ];
+
+  const stats = [
+    { icon: Award, label: "100% Placement", value: "Record" },
+    { icon: Users, label: "Students", value: "5000+" },
+    { icon: Building2, label: "Modern Labs", value: "50+" },
+    { icon: GraduationCap, label: "Years of Excellence", value: "200+" }
+  ];
+
+  const labFacilities = [
+    { title: "AI & ML Lab", image: aiLab, description: "State-of-the-art artificial intelligence research" },
+    { title: "Computer Lab", image: modernLab, description: "Latest hardware and software technology" }
   ];
 
   return (
@@ -93,6 +108,99 @@ const MECHero = () => {
               </div>
             ))}
           </div>
+
+          {/* Contact Email */}
+          <div className="flex items-center justify-center gap-2 sm:gap-3 text-muted-foreground group pt-4">
+            <Mail className="w-5 h-5 sm:w-6 sm:h-6 text-primary group-hover:scale-110 transition-transform" />
+            <a 
+              href="mailto:admissions@mec.edu.in" 
+              className="text-base sm:text-lg md:text-xl font-semibold hover:text-primary transition-colors"
+            >
+              admissions@mec.edu.in
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {/* Statistics Section */}
+      <div className="container mx-auto px-4 py-8 sm:py-12 relative z-10">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+            {stats.map((stat, index) => (
+              <div 
+                key={stat.label}
+                className="bg-background/90 backdrop-blur-sm border-2 border-primary/30 rounded-2xl p-4 sm:p-6 text-center hover:border-primary hover:scale-105 transition-all duration-300 shadow-lg animate-fade-in"
+                style={{ animationDelay: `${index * 100}ms` }}
+              >
+                <stat.icon className="w-8 h-8 sm:w-10 sm:h-10 mx-auto text-primary mb-2 sm:mb-3" />
+                <p className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-1">{stat.value}</p>
+                <p className="text-xs sm:text-sm text-muted-foreground font-semibold">{stat.label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Student Life Section */}
+      <div className="container mx-auto px-4 py-8 sm:py-12 relative z-10">
+        <div className="max-w-6xl mx-auto space-y-6 sm:space-y-8">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center text-foreground animate-fade-in">
+            Our Students
+          </h2>
+          <div className="relative rounded-2xl overflow-hidden shadow-2xl border-2 border-primary/20 hover:border-primary/40 transition-all duration-300 animate-fade-in">
+            <img 
+              src={studentsGroup}
+              alt="MEC Students"
+              className="w-full h-auto object-cover"
+            />
+          </div>
+        </div>
+      </div>
+
+      {/* Modern Lab Facilities Section */}
+      <div className="container mx-auto px-4 py-8 sm:py-12 relative z-10">
+        <div className="max-w-6xl mx-auto space-y-6 sm:space-y-8">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center text-foreground animate-fade-in">
+            Modern Lab Facilities
+          </h2>
+          <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
+            {labFacilities.map((lab, index) => (
+              <div 
+                key={lab.title}
+                className="bg-background/90 backdrop-blur-sm border-2 border-primary/30 rounded-2xl overflow-hidden hover:border-primary hover:scale-105 transition-all duration-300 shadow-lg animate-fade-in"
+                style={{ animationDelay: `${index * 100}ms` }}
+              >
+                <img 
+                  src={lab.image}
+                  alt={lab.title}
+                  className="w-full h-48 sm:h-64 object-cover"
+                />
+                <div className="p-4 sm:p-6">
+                  <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-2">{lab.title}</h3>
+                  <p className="text-sm sm:text-base text-muted-foreground">{lab.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Placement Section */}
+      <div className="container mx-auto px-4 py-8 sm:py-12 relative z-10">
+        <div className="max-w-6xl mx-auto space-y-6 sm:space-y-8">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center text-foreground animate-fade-in">
+            100% Placement Record
+          </h2>
+          <div className="relative rounded-2xl overflow-hidden shadow-2xl border-2 border-primary/20 hover:border-primary/40 transition-all duration-300 animate-fade-in">
+            <img 
+              src={placementCeremony}
+              alt="Placement Ceremony"
+              className="w-full h-auto object-cover"
+            />
+          </div>
+          <p className="text-lg sm:text-xl md:text-2xl text-center text-muted-foreground font-semibold">
+            Our students secure positions at world's leading technology companies
+          </p>
         </div>
       </div>
 
